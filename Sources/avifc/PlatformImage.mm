@@ -131,15 +131,15 @@
 -(bool)avifUnpremultiplyRGBA:(nonnull unsigned char*)data width:(NSInteger)width height:(NSInteger)height {
     vImage_Buffer src = {
         .data = (void*)data,
-        .width = static_cast<vImagePixelCount>(width),
         .height = static_cast<vImagePixelCount>(height),
+        .width = static_cast<vImagePixelCount>(width),
         .rowBytes = static_cast<vImagePixelCount>(width * 4)
     };
 
     vImage_Buffer dest = {
         .data = data,
-        .width = static_cast<vImagePixelCount>(width),
         .height = static_cast<vImagePixelCount>(height),
+        .width = static_cast<vImagePixelCount>(width),
         .rowBytes = static_cast<vImagePixelCount>(width * 4)
     };
     vImage_Error vEerror = vImageUnpremultiplyData_RGBA8888(&src, &dest, kvImageNoFlags);

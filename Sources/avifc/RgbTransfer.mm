@@ -34,15 +34,15 @@
             width:(int)width height:(int)height pixelSize:(int)pixelSize components:(int)components {
     vImage_Buffer srcBuffer = {
         .data = (void*)src,
-        .width = static_cast<vImagePixelCount>(width * components),
         .height = static_cast<vImagePixelCount>(height),
+        .width = static_cast<vImagePixelCount>(width * components),
         .rowBytes = static_cast<size_t>(srcStride)
     };
 
     vImage_Buffer dstBuffer = {
         .data = dst,
-        .width = static_cast<vImagePixelCount>(width * components),
         .height = static_cast<vImagePixelCount>(height),
+        .width = static_cast<vImagePixelCount>(width * components),
         .rowBytes = static_cast<size_t>(dstStride)
     };
     vImage_Error vEerror = vImageCopyBuffer(&srcBuffer, &dstBuffer, static_cast<size_t>(pixelSize), kvImageNoFlags);

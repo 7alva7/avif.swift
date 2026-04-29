@@ -66,10 +66,18 @@
                 || transferCharacteristics == AVIF_TRANSFER_CHARACTERISTICS_SMPTE428)) {
         if (transferCharacteristics == AVIF_TRANSFER_CHARACTERISTICS_SMPTE2084) {
             wideGamut = true;
-            colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceITUR_2100_PQ);
+            if (@available(iOS 14.0, *)) {
+                colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceITUR_2100_PQ);
+            } else {
+                colorSpace = CGColorSpaceCreateDeviceRGB();
+            }
         } else if (transferCharacteristics == AVIF_TRANSFER_CHARACTERISTICS_HLG) {
             wideGamut = true;
-            colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceITUR_2100_HLG);
+            if (@available(iOS 14.0, *)) {
+                colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceITUR_2100_HLG);
+            } else {
+                colorSpace = CGColorSpaceCreateDeviceRGB();
+            }
         } else {
             colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceITUR_2020);
         }

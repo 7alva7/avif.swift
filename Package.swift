@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "avif",
-    platforms: [.iOS(.v13), .macOS(.v12), .macCatalyst(.v14), .watchOS(.v6), .tvOS(.v13)],
+    platforms: [.iOS(.v15), .macOS(.v12), .macCatalyst(.v14), .watchOS(.v8), .tvOS(.v15)],
     products: [
         .library(
             name: "avif",
@@ -17,7 +17,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/awxkee/libaom.swift.git", "1.1.0"..<"1.2.0"),
         .package(url: "https://github.com/awxkee/libdav1d.swift.git", "1.3.0"..<"1.4.0"),
-        .package(url: "https://github.com/kean/Nuke.git", "12.0.0"..<"13.0.0"),
+        .package(url: "https://github.com/kean/Nuke.git", "13.0.0"..<"14.0.0"),
         .package(url: "https://github.com/awxkee/libsvtav1enc.swift", "1.1.0"..<"1.2.0")
     ],
     targets: [

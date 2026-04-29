@@ -197,8 +197,8 @@ pub(crate) fn work_on_transmuted_ptr_u16<F>(
                     .chunks_exact_mut(dst_stride)
                     .zip(src_slice.chunks_exact(rgba_stride as usize))
                 {
-                    let src = &src[0..width * cn * 2];
-                    let dst = &mut dst[0..width * cn];
+                    let src = &src[..width * cn * 2];
+                    let dst = &mut dst[..width * cn];
                     for (dst, src) in dst.iter_mut().zip(src.chunks_exact(2)) {
                         *dst = u16::from_ne_bytes([src[0], src[1]]);
                     }
